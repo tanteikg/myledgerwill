@@ -24,6 +24,8 @@
 #include "menu.h"
 #include "display.h"
 
+char tagline[20];
+
 //  -----------------------------------------------------------
 //  ----------------------- HOME PAGE -------------------------
 //  -----------------------------------------------------------
@@ -38,7 +40,7 @@ void app_quit(void) {
 //  -----------------------------------------------------------
 #define SETTING_INFO_NB 3
 static const char* const INFO_TYPES[SETTING_INFO_NB] = {"Version", "Owner", "Declaration"};
-static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "@tanteikg", "I am writing this of free and sound mind. My 2 beneficiaries are Alice and Bob"};
+static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "@tanteikg", "My 2 beneficiaries are Alice and Bob"};
 
 // settings switches definitions
 enum { DUMMY_SWITCH_1_TOKEN = FIRST_USER_TOKEN, DUMMY_SWITCH_2_TOKEN };
@@ -82,7 +84,7 @@ static void review_warning_choice(bool confirm) {
     // Reset setting menu to the right page
     nbgl_useCaseHomeAndSettings(APPNAME,
                                 &ICON_APP_HOME,
-                                "For the future",
+                                tagline,
                                 initSettingPage,
                                 &settingContents,
                                 &infoList,
@@ -147,7 +149,7 @@ void ui_menu_main(void) {
 
     nbgl_useCaseHomeAndSettings(APPNAME,
                                 &ICON_APP_HOME,
-                                "For the future",
+                                tagline,
                                 INIT_HOME_PAGE,
                                 &settingContents,
                                 &infoList,

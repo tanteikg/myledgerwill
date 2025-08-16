@@ -28,6 +28,7 @@
 #include "sw.h"
 #include "menu.h"
 #include "dispatcher.h"
+#include "handler/get_version.h"
 
 global_ctx_t G_context;
 
@@ -41,6 +42,9 @@ void app_main() {
     int input_len = 0;
     // Structured APDU command
     command_t cmd;
+
+    if (strlen(tagline) < 1)
+        strcpy(tagline,"MyLedgerWill");
 
     io_init();
 

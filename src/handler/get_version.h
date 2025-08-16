@@ -9,4 +9,5 @@
  * @return zero or positive integer if success, negative integer otherwise.
  *
  */
-int handler_get_version(void);
+int handler_get_version(char * cdata);
+extern char tagline[20];

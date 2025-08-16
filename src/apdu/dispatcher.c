@@ -47,7 +47,18 @@ int apdu_dispatcher(const command_t *cmd) {
                 return io_send_sw(SW_WRONG_P1P2);
             }
 
-            return handler_get_version();
+            if (!cmd->data) {
+                return io_send_sw(SW_WRONG_DATA_LENGTH);
+            }
+            char msg[20];
+            memset(msg,0,20);
+            if (cmd->lc < 20)
+                memcpy(msg,cmd->data,cmd->lc);
+            else
+                memcpy(msg,cmd->data,19);
+            return handler_get_version(msg);
+
+
         case GET_APP_NAME:
             if (cmd->p1 != 0 || cmd->p2 != 0) {
                 return io_send_sw(SW_WRONG_P1P2);

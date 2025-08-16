@@ -19,6 +19,7 @@ extern global_ctx_t G_context;
 typedef struct internal_storage_t {
     uint8_t dummy1_allowed;
     uint8_t dummy2_allowed;
+    char free_text[200];
     uint8_t initialized;
 } internal_storage_t;
 
