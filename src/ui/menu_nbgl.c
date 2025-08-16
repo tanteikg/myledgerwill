@@ -37,8 +37,8 @@ void app_quit(void) {
 //  --------------------- SETTINGS MENU -----------------------
 //  -----------------------------------------------------------
 #define SETTING_INFO_NB 2
-static const char* const INFO_TYPES[SETTING_INFO_NB] = {"Version", "Developer"};
-static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "Ledger"};
+static const char* const INFO_TYPES[SETTING_INFO_NB] = {"Version", "Owner"};
+static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "@tanteikg"};
 
 // settings switches definitions
 enum { DUMMY_SWITCH_1_TOKEN = FIRST_USER_TOKEN, DUMMY_SWITCH_2_TOKEN };
@@ -111,8 +111,8 @@ static void controls_callback(int token, uint8_t index, int page) {
         if (!N_storage.dummy2_allowed) {
             // Display the warning message and ask the user to confirm
             nbgl_useCaseChoice(&ICON_APP_WARNING,
-                               "Dummy 2",
-                               "Are you sure to\nallow dummy 2\nin transactions?",
+                               "Bob",
+                               "Are you sure to\ninclude Bob\nin beneficiary?",
                                "I understand, confirm",
                                "Cancel",
                                review_warning_choice);
@@ -130,16 +130,16 @@ static void controls_callback(int token, uint8_t index, int page) {
 void ui_menu_main(void) {
     // Initialize switches data
     switches[DUMMY_SWITCH_1_ID].initState = (nbgl_state_t) N_storage.dummy1_allowed;
-    switches[DUMMY_SWITCH_1_ID].text = "Dummy 1";
-    switches[DUMMY_SWITCH_1_ID].subText = "Allow dummy 1\nin transactions";
+    switches[DUMMY_SWITCH_1_ID].text = "Beneficiary 1";
+    switches[DUMMY_SWITCH_1_ID].subText = "Include Alice\nin beneficiary";
     switches[DUMMY_SWITCH_1_ID].token = DUMMY_SWITCH_1_TOKEN;
 #ifdef HAVE_PIEZO_SOUND
     switches[DUMMY_SWITCH_1_ID].tuneId = TUNE_TAP_CASUAL;
 #endif
 
     switches[DUMMY_SWITCH_2_ID].initState = (nbgl_state_t) N_storage.dummy2_allowed;
-    switches[DUMMY_SWITCH_2_ID].text = "Dummy 2";
-    switches[DUMMY_SWITCH_2_ID].subText = "Allow dummy 2\nin transactions";
+    switches[DUMMY_SWITCH_2_ID].text = "Beneficiary 2";
+    switches[DUMMY_SWITCH_2_ID].subText = "Include Bob\nin beneficiary";
     switches[DUMMY_SWITCH_2_ID].token = DUMMY_SWITCH_2_TOKEN;
 #ifdef HAVE_PIEZO_SOUND
     switches[DUMMY_SWITCH_2_ID].tuneId = TUNE_TAP_CASUAL;
