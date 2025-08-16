@@ -36,9 +36,9 @@ void app_quit(void) {
 //  -----------------------------------------------------------
 //  --------------------- SETTINGS MENU -----------------------
 //  -----------------------------------------------------------
-#define SETTING_INFO_NB 2
-static const char* const INFO_TYPES[SETTING_INFO_NB] = {"Version", "Owner"};
-static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "@tanteikg"};
+#define SETTING_INFO_NB 3
+static const char* const INFO_TYPES[SETTING_INFO_NB] = {"Version", "Owner", "Declaration"};
+static const char* const INFO_CONTENTS[SETTING_INFO_NB] = {APPVERSION, "@tanteikg", "I am writing this of free and sound mind. My 2 beneficiaries are Alice and Bob"};
 
 // settings switches definitions
 enum { DUMMY_SWITCH_1_TOKEN = FIRST_USER_TOKEN, DUMMY_SWITCH_2_TOKEN };
@@ -82,7 +82,7 @@ static void review_warning_choice(bool confirm) {
     // Reset setting menu to the right page
     nbgl_useCaseHomeAndSettings(APPNAME,
                                 &ICON_APP_HOME,
-                                NULL,
+                                "For the future",
                                 initSettingPage,
                                 &settingContents,
                                 &infoList,
@@ -147,7 +147,7 @@ void ui_menu_main(void) {
 
     nbgl_useCaseHomeAndSettings(APPNAME,
                                 &ICON_APP_HOME,
-                                NULL,
+                                "For the future",
                                 INIT_HOME_PAGE,
                                 &settingContents,
                                 &infoList,
