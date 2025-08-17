@@ -23,24 +23,28 @@ Features I expect in this WILL app include:
 This is what I've implemented after some hours of hacking:
 
 1) Changed the initial start screen
+
    ![Start Screen](Start.png)
 
 2) Included a Declaration page
+
    ![Self Declaration ](Declaration.png)
 
 3) Option to allocate assets dynamically
+
    ![Alice](Bene1.png)
    ![Bob](Bene2.png)
 
 4) Allowing remote client to update the tagline
    Update the tagline to "ABCD" 
+
    ![APDU](APDU.png)
 
 ## Running in standalone mode in a Ledger
 
 The app is loaded into a Nano S Plus and conneced to a powerbank to run. 
 
-[Video]([V0.1 of MyLedgerWill running in a Nano S Plus - YouTube](https://youtube.com/shorts/Pg4ugIQ0iBs))
+[V0.1 of MyLedgerWill running in a Nano S Plus - YouTube](https://youtube.com/shorts/Pg4ugIQ0iBs)
 
 ## Licenses
 
